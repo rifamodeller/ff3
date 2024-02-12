@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% macro print_list(lst) %}
+    {% for prof_title in lst %}
+        <li>{{ prof_title }}</li>
+    {% endfor %}
+{% endmacro %}
+
+{% block content %}
+    <h4>И на Марсе будут яблони цвести!</h4>
+    <h2>Список профессий</h2>
+    {% set prof_list = ['Инженер', 'Строитель', 'Космонавт', 'Врач', 'Пилот'] %}
+    {% if list == 'ul' %}
+        <ul>
+            {{ print_list(prof_list) }}
+        </ul>
+    {% elif list == 'ol' %}
+    <ol>
+        {{ print_list(prof_list) }}
+    </ol>
+    {% endif %}
+{% endblock %}
